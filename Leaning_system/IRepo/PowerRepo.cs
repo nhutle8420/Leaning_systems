@@ -14,12 +14,19 @@ namespace Leaning_system.IRepo
 
         public void Create(Power power)
         {
-            throw new NotImplementedException();
+            _dataContext.Powers.Add(power);
+            _dataContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            
+            var power = _dataContext.Powers.FirstOrDefault(x => x.Id == id);
+           
+
+            _dataContext.Powers.Remove(power);
+           _dataContext.SaveChanges();
+
         }
 
         public Power Get(int id)
@@ -32,9 +39,11 @@ namespace Leaning_system.IRepo
             return _dataContext.Powers.ToList();
         }
 
-        public void Update(Power power)
+        public void Update(int id, Power power)
         {
-            throw new NotImplementedException();
+            
+
+           
         }
     }
 }

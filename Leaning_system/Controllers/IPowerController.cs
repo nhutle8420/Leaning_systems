@@ -26,6 +26,30 @@ namespace Leaning_system.Controllers
             }
             return Ok(poweri);
         }
+        [HttpGet("{id}")]
+        public ActionResult GetPower(int id)
+        {
+            var power = _Ipower.Get(id);
+            if (power == null)
+            {
+                return NotFound();
+            }
+            return Ok(power);
+        }
+        [HttpPost]
+        public ActionResult PostPower(Power power)
+        {
+            _Ipower.Create(power);
+            return Ok();
 
+        }
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            _Ipower.Delete(id);
+            return NoContent();
+        }
+        
+       
     }
 }

@@ -7,7 +7,7 @@ namespace Leaning_system.IRepo
         IEnumerable<Power> getAll();
         Power Get(int id);
         public void Delete(int id);
-        public void Update(Power power);
+        public void Update(int id, Power power);
         public void Create(Power power);
 
     }

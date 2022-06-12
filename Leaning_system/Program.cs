@@ -12,6 +12,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 });
 builder.Services.AddScoped<IPower, PowerRepo>();
+builder.Services.AddScoped<IStudent, StudentRepo>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
