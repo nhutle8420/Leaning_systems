@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ALta_Baitap\\Leaning_systems\\Leaning_system\\Leaning_system.csproj": {}
+    "D:\\ALta_Baitap\\New folder\\Leaning_systems\\Leaning_system\\Leaning_system.csproj": {}
   },
   "projects": {
-    "D:\\ALta_Baitap\\Leaning_systems\\Leaning_system\\Leaning_system.csproj": {
+    "D:\\ALta_Baitap\\New folder\\Leaning_systems\\Leaning_system\\Leaning_system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ALta_Baitap\\Leaning_systems\\Leaning_system\\Leaning_system.csproj",
+        "projectUniqueName": "D:\\ALta_Baitap\\New folder\\Leaning_systems\\Leaning_system\\Leaning_system.csproj",
         "projectName": "Leaning_system",
-        "projectPath": "D:\\ALta_Baitap\\Leaning_systems\\Leaning_system\\Leaning_system.csproj",
+        "projectPath": "D:\\ALta_Baitap\\New folder\\Leaning_systems\\Leaning_system\\Leaning_system.csproj",
         "packagesPath": "C:\\Users\\nhutl\\.nuget\\packages\\",
-        "outputPath": "D:\\ALta_Baitap\\Leaning_systems\\Leaning_system\\obj\\",
+        "outputPath": "D:\\ALta_Baitap\\New folder\\Leaning_systems\\Leaning_system\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nhutl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,31 +42,25 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.0-preview.4.22229.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.0-preview.4.22229.2, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0-preview.4.22229.2, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0-preview.4.22229.2, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.0-preview.4.22259.1, )"
+              "version": "[6.0.5, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.3.1, )"
+              "version": "[6.2.3, )"
             }
           },
           "imports": [

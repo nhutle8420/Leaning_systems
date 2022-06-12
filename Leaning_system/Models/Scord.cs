@@ -1,16 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Leaning_system.Models
 {
     public class Scord
     {
-        
-        public int SubjectId { get; set; }
-      
+       
+
         public Class Class { get; set; }
+
       
-        public int ClassID { get; set; }
         [Key]
         public string usernameHV { get; set; }
         public string usernameGV { get; set; }
@@ -24,3 +22,4 @@ namespace Leaning_system.Models
         public DateTime Upload_day { get; set; }
     }
 }
+

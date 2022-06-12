@@ -17,51 +17,48 @@ namespace Leaning_system.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0-preview.4.22229.2")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Leaning_system.Models.Chat", b =>
                 {
-                    b.Property<int>("ChatId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ClassID")
+                    b.Property<int>("ClassId")
                         .HasColumnType("int");
 
                     b.Property<string>("Question")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ChatId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("ClassID");
+                    b.HasIndex("ClassId");
 
-                    b.ToTable("chats");
+                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Leaning_system.Models.Class", b =>
                 {
-                    b.Property<int>("ClassID")
+                    b.Property<int>("ClassId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassId"), 1L, 1);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Discription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Link")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Numberday")
-                        .HasColumnType("int");
 
                     b.Property<string>("PassClass")
                         .IsRequired()
@@ -78,9 +75,6 @@ namespace Leaning_system.Migrations
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubjectsSubjectId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TeacherusernameGV")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -89,28 +83,23 @@ namespace Leaning_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("endday")
+                    b.Property<DateTime>("end_day")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("startday")
+                    b.Property<int>("numberday")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("start_day")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("status")
                         .HasColumnType("int");
 
-                    b.Property<string>("usernameGV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("usernameHV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClassID");
+                    b.HasKey("ClassId");
 
                     b.HasIndex("StudentusernameHV");
 
-                    b.HasIndex("SubjectsSubjectId");
+                    b.HasIndex("SubjectId");
 
                     b.HasIndex("TeacherusernameGV");
 
@@ -125,71 +114,34 @@ namespace Leaning_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Course"), 1L, 1);
 
-                    b.Property<int>("ClassID")
+                    b.Property<int>("ClassId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CoursesName")
+                    b.Property<string>("CourseName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Numberday")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("Time")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("endday")
+                    b.Property<DateTime>("end_day")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("startday")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("status")
+                    b.Property<int>("numberday")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("start_day")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Course");
 
-                    b.HasIndex("ClassID");
+                    b.HasIndex("ClassId");
 
                     b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.Examl_detial", b =>
-                {
-                    b.Property<int>("ClassID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassID"), 1L, 1);
-
-                    b.Property<int>("ClassID1")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Context")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("day")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("start_xaml")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClassID");
-
-                    b.HasIndex("ClassID1");
-
-                    b.ToTable("examl_Detials");
                 });
 
             modelBuilder.Entity("Leaning_system.Models.Power", b =>
@@ -207,53 +159,6 @@ namespace Leaning_system.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Powers");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.Scord", b =>
-                {
-                    b.Property<string>("usernameHV")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ClassID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Mouth_point")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Upload_day")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("assiduity_point")
-                        .HasColumnType("int");
-
-                    b.Property<int>("avegare")
-                        .HasColumnType("int");
-
-                    b.Property<int>("factor2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("factor3")
-                        .HasColumnType("int");
-
-                    b.Property<string>("result")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("scord_TB")
-                        .HasColumnType("int");
-
-                    b.Property<string>("usernameGV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("usernameHV");
-
-                    b.HasIndex("ClassID");
-
-                    b.ToTable("scords");
                 });
 
             modelBuilder.Entity("Leaning_system.Models.Student", b =>
@@ -326,6 +231,9 @@ namespace Leaning_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PowerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("active")
                         .HasColumnType("int");
 
@@ -337,65 +245,18 @@ namespace Leaning_system.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("powerID")
-                        .HasColumnType("int");
-
                     b.HasKey("usernameGV");
 
-                    b.HasIndex("powerID");
+                    b.HasIndex("PowerId");
 
                     b.ToTable("Teachers");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.test_schedule", b =>
-                {
-                    b.Property<string>("Topic")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Day_test")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SubjectsSubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("contest")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("end_test")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("file")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("form")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("start_test")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("time")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Topic");
-
-                    b.HasIndex("SubjectsSubjectId");
-
-                    b.ToTable("test_Schedules");
                 });
 
             modelBuilder.Entity("Leaning_system.Models.Chat", b =>
                 {
                     b.HasOne("Leaning_system.Models.Class", "Class")
                         .WithMany()
-                        .HasForeignKey("ClassID")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -410,9 +271,9 @@ namespace Leaning_system.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Leaning_system.Models.Subjects", "Subjects")
+                    b.HasOne("Leaning_system.Models.Subjects", "Subject")
                         .WithMany()
-                        .HasForeignKey("SubjectsSubjectId")
+                        .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -424,7 +285,7 @@ namespace Leaning_system.Migrations
 
                     b.Navigation("Student");
 
-                    b.Navigation("Subjects");
+                    b.Navigation("Subject");
 
                     b.Navigation("Teacher");
                 });
@@ -433,29 +294,7 @@ namespace Leaning_system.Migrations
                 {
                     b.HasOne("Leaning_system.Models.Class", "Class")
                         .WithMany()
-                        .HasForeignKey("ClassID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Class");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.Examl_detial", b =>
-                {
-                    b.HasOne("Leaning_system.Models.Class", "Class")
-                        .WithMany()
-                        .HasForeignKey("ClassID1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Class");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.Scord", b =>
-                {
-                    b.HasOne("Leaning_system.Models.Class", "Class")
-                        .WithMany()
-                        .HasForeignKey("ClassID")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -466,22 +305,11 @@ namespace Leaning_system.Migrations
                 {
                     b.HasOne("Leaning_system.Models.Power", "Power")
                         .WithMany()
-                        .HasForeignKey("powerID")
+                        .HasForeignKey("PowerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Power");
-                });
-
-            modelBuilder.Entity("Leaning_system.Models.test_schedule", b =>
-                {
-                    b.HasOne("Leaning_system.Models.Subjects", "Subjects")
-                        .WithMany()
-                        .HasForeignKey("SubjectsSubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Subjects");
                 });
 #pragma warning restore 612, 618
         }

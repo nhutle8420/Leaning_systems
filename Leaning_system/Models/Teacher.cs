@@ -13,6 +13,6 @@ namespace Leaning_system.Models
         public string phone { get; set; }
         public string Email { get; set; }
         public Power Power { get; set; }
-        public int powerID { get; set; }
+     
     }
 }
