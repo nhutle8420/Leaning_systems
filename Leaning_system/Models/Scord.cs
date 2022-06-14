@@ -8,7 +8,7 @@ namespace Leaning_system.Models
 
         public Class Class { get; set; }
 
-      
+        public int ClassId { get; set; }
         [Key]
         public string usernameHV { get; set; }
         public string usernameGV { get; set; }

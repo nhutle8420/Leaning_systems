@@ -15,11 +15,13 @@ namespace Leaning_system.Models
         public string PassClass { get; set; }
         public string Security { get; set; }
         public int status { get; set; }
-        public Teacher Teacher { get; set; }
+       public Student student { get; set; }
+        public Teacher teacher { get; set; }
+        
+        public string usernameGV { get; set; }
 
-       
-
-        public Subjects Subject { get; set; }
-
+        public string usernameHV { get; set; }
+        public Subjects subjects { get; set; }
+        public int SubjectId { get; set; }
     }
 }

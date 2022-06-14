@@ -7,27 +7,27 @@ namespace Leaning_system.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class Test_scheduleController : ControllerBase
     {
-        public readonly IStudent _istudent;
-        public StudentController(IStudent student)
+        public readonly ITest_schedule _ische;
+        public Test_scheduleController(ITest_schedule test)
         {
-            _istudent = student;
+            _ische = test;
         }
         [HttpGet]
         public ActionResult Get()
         {
-            var st = _istudent.getAll();
-            if (st == null)
+            var t = _ische.getAll();
+            if (t == null)
             {
                 return NotFound();
             }
-            return Ok(st);
+            return Ok(t);
         }
-        [HttpGet("{usernameHV}")]
-        public ActionResult GetPower(string usernameHV)
+        [HttpGet("{Topic}")]
+        public ActionResult GetPower(string Topic)
         {
-            var st = _istudent.Get(usernameHV);
+            var st = _ische.Get(Topic);
             if (st == null)
             {
                 return NotFound();
@@ -35,22 +35,22 @@ namespace Leaning_system.Controllers
             return Ok(st);
         }
         [HttpPost]
-        public ActionResult PostPower(Student st)
+        public ActionResult PostPower(test_schedule st)
         {
-            _istudent.Create(st);
+            _ische.Create(st);
             return Ok();
 
         }
-        [HttpDelete("{usernameHV}")]
-        public ActionResult Delete(string usernameHV)
+        [HttpDelete("{Topic}")]
+        public ActionResult Delete(string Topic)
         {
-            _istudent.Delete(usernameHV);
+            _ische.Delete(Topic);
             return NoContent();
         }
         [HttpPut]
-        public ActionResult PutST(Student st)
+        public ActionResult PutST(test_schedule st)
         {
-            _istudent.Update(st);
+            _ische.Update(st);
             return NoContent();
         }
     }

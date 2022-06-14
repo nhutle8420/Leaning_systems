@@ -10,6 +10,6 @@ namespace Leaning_system.Models
         public string Description { get; set; }
         public DateTime schedule { get; set; }
         public string Time { get; set; }
-
+        
     }
 }

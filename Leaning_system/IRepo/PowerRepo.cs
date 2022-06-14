@@ -39,11 +39,10 @@ namespace Leaning_system.IRepo
             return _dataContext.Powers.ToList();
         }
 
-        public void Update(int id, Power power)
+        public void Update(Power power)
         {
-            
-
-           
+            _dataContext.Powers.Update(power);
+            _dataContext.SaveChanges();
         }
     }
 }

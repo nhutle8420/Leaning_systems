@@ -49,7 +49,12 @@ namespace Leaning_system.Controllers
             _Ipower.Delete(id);
             return NoContent();
         }
-        
-       
+        [HttpPut]
+        public ActionResult PutPower(Power power)
+        {
+            _Ipower.Update(power);
+            return NoContent();
+        }
+
     }
 }

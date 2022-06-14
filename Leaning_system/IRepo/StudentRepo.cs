@@ -42,7 +42,8 @@ namespace Leaning_system.IRepo
 
         public void Update(Student student)
         {
-            throw new NotImplementedException();
+            _dataContext.Students.Update(student);
+            _dataContext.SaveChanges();
         }
     }
 }

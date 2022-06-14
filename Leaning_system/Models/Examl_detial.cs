@@ -5,8 +5,8 @@ namespace Leaning_system.Models
     public class Examl_detial
     {
         public Class Class { get; set; }
-        
-        
+        public int ClassId { get; set; }
+
 
         public DateTime day { get; set; }
         [Key]
