@@ -4,7 +4,8 @@ namespace Leaning_system.Models
 {
     public class Scord
     {
-       
+
+
 
         public Class Class { get; set; }
 

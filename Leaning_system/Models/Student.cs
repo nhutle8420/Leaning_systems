@@ -12,7 +12,7 @@ namespace Leaning_system.Models
         public int active { get; set; }
         public string phone { get; set; }
         public string Email { get; set; }
-        
+
 
     }
 }
