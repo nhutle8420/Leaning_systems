@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Leaning_system.Migrations
 {
-    /// <inheritdoc />
-    public partial class Leanings : Migration
+    public partial class leanings : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -66,21 +64,22 @@ namespace Leaning_system.Migrations
                     active = table.Column<int>(type: "int", nullable: false),
                     phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    powerID = table.Column<int>(type: "int", nullable: false)
+                    PowerId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teachers", x => x.usernameGV);
                     table.ForeignKey(
-                        name: "FK_Teachers_Powers_powerID",
-                        column: x => x.powerID,
+                        name: "FK_Teachers_Powers_PowerId",
+                        column: x => x.PowerId,
                         principalTable: "Powers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "test_Schedules",
+                name: "test_schedule",
                 columns: table => new
                 {
                     Topic = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -96,9 +95,9 @@ namespace Leaning_system.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_test_Schedules", x => x.Topic);
+                    table.PrimaryKey("PK_test_schedule", x => x.Topic);
                     table.ForeignKey(
-                        name: "FK_test_Schedules_Subjects_SubjectsSubjectId",
+                        name: "FK_test_schedule_Subjects_SubjectsSubjectId",
                         column: x => x.SubjectsSubjectId,
                         principalTable: "Subjects",
                         principalColumn: "SubjectId",
@@ -109,64 +108,64 @@ namespace Leaning_system.Migrations
                 name: "Classes",
                 columns: table => new
                 {
-                    ClassID = table.Column<int>(type: "int", nullable: false)
+                    ClassId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SubjectId = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Numberday = table.Column<int>(type: "int", nullable: false),
+                    Discription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    numberday = table.Column<int>(type: "int", nullable: false),
                     Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    startday = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    endday = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    start_day = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    end_day = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassClass = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Security = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
-                    TeacherusernameGV = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    studentusernameHV = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    teacherusernameGV = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     usernameGV = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SubjectsSubjectId = table.Column<int>(type: "int", nullable: false),
-                    StudentusernameHV = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    usernameHV = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    usernameHV = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    subjectsSubjectId = table.Column<int>(type: "int", nullable: false),
+                    SubjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Classes", x => x.ClassID);
+                    table.PrimaryKey("PK_Classes", x => x.ClassId);
                     table.ForeignKey(
-                        name: "FK_Classes_Students_StudentusernameHV",
-                        column: x => x.StudentusernameHV,
+                        name: "FK_Classes_Students_studentusernameHV",
+                        column: x => x.studentusernameHV,
                         principalTable: "Students",
                         principalColumn: "usernameHV",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Classes_Subjects_SubjectsSubjectId",
-                        column: x => x.SubjectsSubjectId,
+                        name: "FK_Classes_Subjects_subjectsSubjectId",
+                        column: x => x.subjectsSubjectId,
                         principalTable: "Subjects",
                         principalColumn: "SubjectId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Classes_Teachers_TeacherusernameGV",
-                        column: x => x.TeacherusernameGV,
+                        name: "FK_Classes_Teachers_teacherusernameGV",
+                        column: x => x.teacherusernameGV,
                         principalTable: "Teachers",
                         principalColumn: "usernameGV",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "chats",
+                name: "Chats",
                 columns: table => new
                 {
-                    ChatId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClassID = table.Column<int>(type: "int", nullable: false),
                     Question = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_chats", x => x.ChatId);
+                    table.PrimaryKey("PK_Chats", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_chats_Classes_ClassID",
+                        name: "FK_Chats_Classes_ClassID",
                         column: x => x.ClassID,
                         principalTable: "Classes",
-                        principalColumn: "ClassID",
+                        principalColumn: "ClassId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -176,56 +175,53 @@ namespace Leaning_system.Migrations
                 {
                     Course = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CoursesName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    startday = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    endday = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    start_day = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    end_day = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    status = table.Column<int>(type: "int", nullable: false),
-                    Numberday = table.Column<int>(type: "int", nullable: false),
-                    ClassID = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    numberday = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Courses", x => x.Course);
                     table.ForeignKey(
-                        name: "FK_Courses_Classes_ClassID",
-                        column: x => x.ClassID,
+                        name: "FK_Courses_Classes_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "Classes",
-                        principalColumn: "ClassID",
+                        principalColumn: "ClassId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "examl_Detials",
+                name: "Examl_detial",
                 columns: table => new
                 {
-                    ClassID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClassID1 = table.Column<int>(type: "int", nullable: false),
+                    Context = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false),
                     day = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Context = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     start_xaml = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_examl_Detials", x => x.ClassID);
+                    table.PrimaryKey("PK_Examl_detial", x => x.Context);
                     table.ForeignKey(
-                        name: "FK_examl_Detials_Classes_ClassID1",
-                        column: x => x.ClassID1,
+                        name: "FK_Examl_detial_Classes_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "Classes",
-                        principalColumn: "ClassID",
+                        principalColumn: "ClassId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "scords",
+                name: "Scord",
                 columns: table => new
                 {
                     usernameHV = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    SubjectId = table.Column<int>(type: "int", nullable: false),
-                    ClassID = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false),
                     usernameGV = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     assiduity_point = table.Column<int>(type: "int", nullable: false),
                     Mouth_point = table.Column<int>(type: "int", nullable: false),
@@ -238,78 +234,77 @@ namespace Leaning_system.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_scords", x => x.usernameHV);
+                    table.PrimaryKey("PK_Scord", x => x.usernameHV);
                     table.ForeignKey(
-                        name: "FK_scords_Classes_ClassID",
-                        column: x => x.ClassID,
+                        name: "FK_Scord_Classes_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "Classes",
-                        principalColumn: "ClassID",
+                        principalColumn: "ClassId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_chats_ClassID",
-                table: "chats",
+                name: "IX_Chats_ClassID",
+                table: "Chats",
                 column: "ClassID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_StudentusernameHV",
+                name: "IX_Classes_studentusernameHV",
                 table: "Classes",
-                column: "StudentusernameHV");
+                column: "studentusernameHV");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_SubjectsSubjectId",
+                name: "IX_Classes_subjectsSubjectId",
                 table: "Classes",
-                column: "SubjectsSubjectId");
+                column: "subjectsSubjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_TeacherusernameGV",
+                name: "IX_Classes_teacherusernameGV",
                 table: "Classes",
-                column: "TeacherusernameGV");
+                column: "teacherusernameGV");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Courses_ClassID",
+                name: "IX_Courses_ClassId",
                 table: "Courses",
-                column: "ClassID");
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_examl_Detials_ClassID1",
-                table: "examl_Detials",
-                column: "ClassID1");
+                name: "IX_Examl_detial_ClassId",
+                table: "Examl_detial",
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_scords_ClassID",
-                table: "scords",
-                column: "ClassID");
+                name: "IX_Scord_ClassId",
+                table: "Scord",
+                column: "ClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teachers_powerID",
+                name: "IX_Teachers_PowerId",
                 table: "Teachers",
-                column: "powerID");
+                column: "PowerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_test_Schedules_SubjectsSubjectId",
-                table: "test_Schedules",
+                name: "IX_test_schedule_SubjectsSubjectId",
+                table: "test_schedule",
                 column: "SubjectsSubjectId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "chats");
+                name: "Chats");
 
             migrationBuilder.DropTable(
                 name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "examl_Detials");
+                name: "Examl_detial");
 
             migrationBuilder.DropTable(
-                name: "scords");
+                name: "Scord");
 
             migrationBuilder.DropTable(
-                name: "test_Schedules");
+                name: "test_schedule");
 
             migrationBuilder.DropTable(
                 name: "Classes");
