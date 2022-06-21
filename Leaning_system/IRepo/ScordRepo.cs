@@ -13,9 +13,9 @@ namespace Leaning_system.IRepo
             _dataContext.SaveChanges();
         }
 
-        public bool Delete(string usernameHV)
+        public bool Delete(int STT)
         {
-            var p = _dataContext.Scord.FirstOrDefault(x => x.usernameHV == usernameHV);
+            var p = _dataContext.Scord.FirstOrDefault(x => x.STT == STT);
             if (p == null)
             {
                 return false;
@@ -29,9 +29,9 @@ namespace Leaning_system.IRepo
             
         }
 
-        public Scord Get(string usernameHV)
+        public Scord Get(int STT)
         {
-            return _dataContext.Scord.FirstOrDefault(x => x.usernameHV == usernameHV);
+            return _dataContext.Scord.FirstOrDefault(x => x.STT == STT);
         }
 
         public IEnumerable<Scord> getAll()

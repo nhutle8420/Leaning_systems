@@ -24,10 +24,10 @@ namespace Leaning_system.Controllers
             }
             return Ok(st);
         }
-        [HttpGet("{usernameHV}")]
-        public ActionResult GetPower(string usernameHV)
+        [HttpGet("{MSSV}")]
+        public ActionResult GetPower(int MSSV)
         {
-            var st = _istudent.Get(usernameHV);
+            var st = _istudent.Get(MSSV);
             if (st == null)
             {
                 return NotFound();
@@ -41,10 +41,10 @@ namespace Leaning_system.Controllers
             return Ok();
 
         }
-        [HttpDelete("{usernameHV}")]
-        public ActionResult Delete(string usernameHV)
+        [HttpDelete("{MSSV}")]
+        public ActionResult Delete(int MSSV)
         {
-            _istudent.Delete(usernameHV);
+            _istudent.Delete(MSSV);
             return NoContent();
         }
         [HttpPut]

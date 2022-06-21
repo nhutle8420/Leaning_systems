@@ -24,10 +24,10 @@ namespace Leaning_system.Controllers
             }
             return Ok(st);
         }
-        [HttpGet("{usernameHV}")]
-        public ActionResult GetPower(string usernameHV)
+        [HttpGet("{STT}")]
+        public ActionResult GetPower(int STT)
         {
-            var st = _isCord.Get(usernameHV);
+            var st = _isCord.Get(STT);
             if (st == null)
             {
                 return NotFound();
@@ -42,9 +42,9 @@ namespace Leaning_system.Controllers
 
         }
         [HttpDelete("{usernameHV}")]
-        public ActionResult Delete(string usernameHV)
+        public ActionResult Delete(int STT)
         {
-            if (_isCord.Delete(usernameHV))
+            if (_isCord.Delete(STT))
                 return NoContent();
             else
                 return BadRequest();

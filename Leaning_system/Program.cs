@@ -1,5 +1,7 @@
 using Leaning_system.DBContext;
 using Leaning_system.IRepo;
+using Leaning_system.IRepo.Interface;
+using Leaning_system.IRepo.Repo;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,8 @@ builder.Services.AddScoped<IExaml, ExamlRepo>();
 builder.Services.AddScoped<IChat, ChatRepo>();
 builder.Services.AddScoped<IScord, ScordRepo>();
 builder.Services.AddScoped<ICourse, CoursesRepo>();
+builder.Services.AddScoped<IAccount, AccountRepo>();
+builder.Services.AddScoped<IDocument, DocumentRepo>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

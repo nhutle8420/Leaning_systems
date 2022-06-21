@@ -1,4 +1,5 @@
 ﻿using Leaning_system.DBContext;
+using Leaning_system.IRepo.Interface;
 using Leaning_system.Models;
 
 namespace Leaning_system.IRepo

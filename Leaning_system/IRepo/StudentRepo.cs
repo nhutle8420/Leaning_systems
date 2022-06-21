@@ -20,9 +20,9 @@ namespace Leaning_system.IRepo
             _dataContext.SaveChanges();
         }
 
-        public void Delete(string usernameHV)
+        public void Delete(int MSSV)
         {
-            var st = _dataContext.Students.FirstOrDefault(x => x.usernameHV == usernameHV);
+            var st = _dataContext.Students.FirstOrDefault(x => x.MSSV ==MSSV);
 
 
             _dataContext.Students.Remove(st);
@@ -30,9 +30,9 @@ namespace Leaning_system.IRepo
 
         }
 
-        public Student Get(string usernameHV)
+        public Student Get(int MSSV)
         {
-           return _dataContext.Students.FirstOrDefault(x => x.usernameHV == usernameHV);
+           return _dataContext.Students.FirstOrDefault(x => x.MSSV == MSSV);
         }
 
         public IEnumerable<Student> getAll()

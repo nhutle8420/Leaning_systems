@@ -13,7 +13,7 @@ namespace Leaning_system.Models
         public int Status { get; set; }
         public int numberday { get; set; }
         public Class Class { get; set; }
-        public int ClassId { get; set; }
+        public Account account { get; set; }
 
     }
 }

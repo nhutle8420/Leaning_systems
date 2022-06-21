@@ -5,13 +5,20 @@ namespace Leaning_system.Models
     public class Student
     {
         [Key]
-        public string usernameHV { get; set; }
+        
+        public int MSSV { get; set; }
+        [Required, StringLength(50)]
+        public string NameHV { get; set; }
+        [Required]
 
-        public string passwordHV { get; set; }
-        public string NameHS { get; set; }
+        public int Phone { get; set; }
+        [Required, StringLength(50)]
+        [EmailAddress]
         public int active { get; set; }
-        public string phone { get; set; }
-        public string Email { get; set; }
+
+        public Account account { get; set; }
+
+        
 
 
     }

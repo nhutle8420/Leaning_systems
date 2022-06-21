@@ -1,6 +1,6 @@
 ﻿using Leaning_system.Models;
 
-namespace Leaning_system.IRepo
+namespace Leaning_system.IRepo.Interface
 {
     public interface ICourse
     {

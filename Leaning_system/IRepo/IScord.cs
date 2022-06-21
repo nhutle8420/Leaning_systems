@@ -5,8 +5,8 @@ namespace Leaning_system.IRepo
     public interface IScord
     {
         IEnumerable<Scord> getAll();
-        Scord Get(string usernameHV);
-        public bool Delete(string usernameHV);
+        Scord Get(int STT);
+        public bool Delete(int STT);
         public void Update(Scord c);
         public void Create(Scord c);
     }

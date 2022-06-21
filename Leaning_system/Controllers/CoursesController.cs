@@ -1,4 +1,4 @@
-﻿using Leaning_system.IRepo;
+﻿using Leaning_system.IRepo.Interface;
 using Leaning_system.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -20,18 +20,18 @@ namespace Leaning_system.IRepo
 
       
 
-        public void Delete(string usernameGV)
+        public void Delete(int MaGV)
         {
-            var t = _dataContext.Teachers.FirstOrDefault(x => x.usernameGV == usernameGV);
+            var t = _dataContext.Teachers.FirstOrDefault(x => x.MaGV == MaGV);
 
 
             _dataContext.Teachers.Remove(t);
             _dataContext.SaveChanges();
         }
 
-        public Teacher Get(string usernameGV)
+        public Teacher Get(int MaGV)
         {
-            return _dataContext.Teachers.FirstOrDefault(x => x.usernameGV == usernameGV);
+            return _dataContext.Teachers.FirstOrDefault(x => x.MaGV == MaGV);
         }
 
         public IEnumerable<Teacher> getAll()

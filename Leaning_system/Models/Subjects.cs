@@ -7,8 +7,8 @@ namespace Leaning_system.Models
         [Key]
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }
-        public string Description { get; set; }
-        public DateTime schedule { get; set; }
+        public string Description { get; set; } 
+        public string schedule { get; set; }
         public string Time { get; set; }
 
     }

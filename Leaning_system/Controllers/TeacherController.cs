@@ -20,10 +20,10 @@ namespace Leaning_system.Controllers
             var i= _iteacher.getAll();
             return Ok(i);
         }
-        [HttpGet("{usernameGV}")]
-        public ActionResult GetPower(string usernameGV)
+        [HttpGet("{MaGV}")]
+        public ActionResult GetPower(int MaGV)
         {
-            var t = _iteacher.Get(usernameGV);
+            var t = _iteacher.Get(MaGV);
             if (t == null)
             {
                 return NotFound();
@@ -38,10 +38,10 @@ namespace Leaning_system.Controllers
             return Ok();
 
         }
-        [HttpDelete("{usernameGV}")]
-        public ActionResult Delete(string usernameGV)
+        [HttpDelete("{MaGV}")]
+        public ActionResult Delete(int MaGV)
         {
-            _iteacher.Delete(usernameGV);
+            _iteacher.Delete(MaGV);
             return NoContent();
         }
         [HttpPut]

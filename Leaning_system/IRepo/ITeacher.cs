@@ -5,8 +5,8 @@ namespace Leaning_system.IRepo
     public interface ITeacher
     {
         IEnumerable<Teacher> getAll();
-        Teacher Get(string usernameGV);
-        public void Delete(string usernameGV);
+        Teacher Get(int MaGV);
+        public void Delete(int MaGV);
         public void Update(Teacher t);
         public void Create(Teacher t);
     }
